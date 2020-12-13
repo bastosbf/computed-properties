@@ -2,7 +2,7 @@ import {render, settled} from "@ember/test-helpers";
 import {setupRenderingTest} from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import {module, test} from "qunit";
-import {PropertyEnum} from "taxify-business-portal/models/test-model";
+import {PropertyEnum} from "computed-properties/models/test-model";
 
 module("Integration | Component | test-component", function (hooks) {
   setupRenderingTest(hooks);
@@ -15,11 +15,13 @@ module("Integration | Component | test-component", function (hooks) {
 
     await render(hbs`<TestComponent />`);
 
-    assert.dom('[data-test="content"]').hasText("True");
+    assert.dom('[data-test="works"]').hasText("true");
+    assert.dom('[data-test="does-not-work"]').hasText("true");
 
     record.property = PropertyEnum.Option2;
     await settled();
 
-    assert.dom('[data-test="content"]').hasText("False");
+    assert.dom('[data-test="works"]').hasText("false");
+    assert.dom('[data-test="does-not-work"]').hasText("false");
   });
 });

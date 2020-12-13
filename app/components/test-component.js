@@ -15,7 +15,14 @@ export default Component.extend({
     this.set("model", this.store.peekAll("test-model").firstObject);
   },
 
-  someResult: computed(
+  doesNotWork: computed(
+    "model.computedProperty", "property",
+    function () {
+      return (this.model && this.model.computedProperty) || this.property;
+    }
+  ),
+
+  works: computed(
     "model.{computedProperty,property}", "property",
     function () {
       return (this.model && this.model.computedProperty) || this.property;

@@ -9,7 +9,6 @@ export default class TestModel extends Model {
   @attr("string")
   property!: PropertyEnum;
 
-  //@computed("property")
   get computedProperty() {
     return this.property === PropertyEnum.Option1;
   }

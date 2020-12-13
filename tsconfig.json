@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "target": "es2020",
+      "allowJs": true,
+      "experimentalDecorators": true,
+      "moduleResolution": "node" ,
+      "baseUrl": "."
+    },
+    "include":[
+        "app/**/*",
+        "tests/**/*"
+    ]
+}
